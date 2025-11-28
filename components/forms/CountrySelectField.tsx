@@ -33,9 +33,11 @@ type CountrySelectProps = {
 const CountrySelect = ({
   value,
   onChange,
+  id,
 }: {
   value: string;
   onChange: (value: string) => void;
+  id: string;
 }) => {
   const [open, setOpen] = useState(false);
 
@@ -55,6 +57,7 @@ const CountrySelect = ({
     <Popover open={open} onOpenChange={setOpen}>
       <PopoverTrigger asChild>
         <Button
+          id={id}
           variant="outline"
           role="combobox"
           aria-expanded={open}
@@ -134,7 +137,11 @@ export const CountrySelectField = ({
           required: required ? `Please select ${label.toLowerCase()}` : false,
         }}
         render={({ field }) => (
-          <CountrySelect value={field.value} onChange={field.onChange} />
+          <CountrySelect
+            id={name}
+            value={field.value}
+            onChange={field.onChange}
+          />
         )}
       />
       {error && <p className="text-sm text-red-500">{error.message}</p>}

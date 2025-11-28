@@ -53,6 +53,7 @@ const SignUpPage = () => {
         <InputField
           name="email"
           label="Email"
+          type="email"
           placeholder="johndoe@email.com"
           register={register}
           error={errors.email}
@@ -72,7 +73,7 @@ const SignUpPage = () => {
           register={register}
           error={errors.password}
           validation={{
-            required: "Full name is required",
+            required: "Password is required",
             minLength: {
               value: 8,
               message: "Password must have at least 8 characters",
